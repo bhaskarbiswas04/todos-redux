@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo } from "./store";
+import { addTodo, removeTodo } from "./store";
 import "./App.css";
 
 function App() {
@@ -32,7 +32,16 @@ function App() {
 
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.text}</li>
+          <li className="todo-item">
+            <span>{todo.text}</span>
+            {/* NEW: Button to trigger the removal */}
+            <button
+              onClick={() => dispatch(removeTodo(todo.text))}
+              className="remove-btn"
+            >
+              Remove
+            </button>
+          </li>
         ))}
       </ul>
     </div>
