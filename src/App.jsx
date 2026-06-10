@@ -34,7 +34,6 @@ function App() {
         {todos.map((todo) => (
           <li className="todo-item">
             <span>{todo.text}</span>
-            {/* NEW: Button to trigger the removal */}
             <button
               onClick={() => dispatch(removeTodo(todo.text))}
               className="remove-btn"
